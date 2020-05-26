@@ -1,0 +1,150 @@
+body {
+    background: white;
+    overflow: hidden;
+}
+.conteudo {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+}
+.conteudo.active {
+    overflow: hidden;
+}
+.header {
+    padding: 15px 25px;
+  }
+  
+  input {
+    border: 1px solid rgb(0,0,0,0.2);
+  }
+  .recover-bt {
+    position: absolute;
+    margin-left: -70px;
+    margin-top: 15px;
+    color: #333;
+    font-size: 11pt;
+  }
+  
+  
+  label {
+    display: block;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  label span {
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 10px;
+    font-size: 10pt;
+    padding: 1px;
+    background: white;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* CSS DIFERENTE*/
+  
+  .profileInfo {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 10px;
+  }
+  img.profile {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background: rgb(0,0,0,0.2);
+    display: block;
+    margin: auto;
+  }
+  .sendPic {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    color: #00AFC3;
+  }
+  .text-center {
+    text-align: center;
+  }
+  
+  .passwordRg {
+    display: grid;
+    grid-template-areas:  "email email"
+                          "senha senhaConfirm";
+    grid-gap:  20px;
+    margin-bottom: 30px;
+  }
+  
+  .passwordRg div:first-child {
+    grid-area: email;
+  }
+  
+  footer a {
+    color: #00AFC3;
+    margin: 15px;
+    font-size: 13px;
+  }
+  footer .link-footer {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 0px;
+    padding: 60px 50px 0px 50px;
+  }
+  
+  footer div {
+    text-align: center;
+  }
+  
+  footer>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  footer .wule-logo {
+    max-height: 40px;
+    margin: 0px 40px;
+  }
+  
+  footer .copyright {
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  @media (max-width: 899px) {
+    *{
+      grid-template-columns: 1fr!important;
+    }
+    body img {
+      max-width: 100%;
+      display: inline-block;
+      margin: 0px auto;
+    }
+    
+    footer .link-footer {
+      padding: 60px 30px;
+    }
+    footer .links-map {
+      columns: 2;
+      text-align: left;
+      padding: 30px 0px;
+    }
+    footer .links-map a {
+      display: inline-block;
+      width: 100%;
+    }
+
+    .passwordRg {
+        grid-template-areas:
+        "email"
+        "senha"
+        "senhaConfirm";
+    }
+
+    .windowAll .conteudoWindow {
+        padding: 30px 25px;
+    }
+  }
