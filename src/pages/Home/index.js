@@ -20,7 +20,7 @@ function Home() {
 			<div className="painel">
 				<h1>Não perca nenhuma mensagem!</h1>
 				<p>O <strong>GerenciaZap</strong> é uma ferramenta de captura de contatos completa! Não perca nenhuma mensagem enviada em seu Site, acesse sua lista de contatos e muito mais!</p>
-				<a href="#signature" className="btn-primary">GANHE 1 MÊS PARA TESTAR</a>
+				<a href="join" className="btn-primary">GANHE 1 MÊS PARA TESTAR</a>
 			</div>
 		</div>
 		<section className="fluid-container complete" id="functionalities">
@@ -30,7 +30,7 @@ function Home() {
 						<h1>Obtenha uma ferramenta completa!</h1>
 						<p className="subtitle">Com o <strong>GerenciaZap</strong> você poderá acessar todas as mensagens, até mesmo as que não foram enviadas pelo WhatsApp Web, podendo responder a todas as solicitações de seus Clientes.</p>
 						<p>Além disso, utilize sua lista de Contatos para realizar suas Campanhas de E-mail Marketing com o público alvo certo!</p>
-						<a href="#signature" className="btn-primary center">GANHE 1 MÊS PARA TESTAR</a>
+						<a href="join" className="btn-primary center">GANHE 1 MÊS PARA TESTAR</a>
 					</div>
 				</div>
 				<div>
@@ -108,7 +108,7 @@ function Home() {
 			<h2>Assine e ganhe 1 mês para testar</h2>
 			<p>Comece a receber mensagens de seus clientes agora mesmo!</p>
 			<p>Cadastre-se e ganhe 1 mês gratuito para testar!</p>
-			<a href="#signature" className="btn-primary center">GANHE 1 MÊS PARA TESTAR</a>
+			<a href="join" className="btn-primary center">GANHE 1 MÊS PARA TESTAR</a>
 		</section>
 		<footer className="fluid-container">
 			<div className="container link-footer">
@@ -116,7 +116,7 @@ function Home() {
 					<img src="/images/logo.png" alt="GerenciaZap"/>
 				</div>
 				<div className="links-map">
-					<a href="#functionalities">Funcionalidades</a> <a href="#signature">Assinatura</a> <a href="#how-to">Integração</a> <a href="#support">Suporte</a> <a href="#">Login</a> <a href="#">Cadastre-se</a>
+					<a href="#functionalities">Funcionalidades</a> <a href="join">Assinatura</a> <a href="#how-to">Integração</a> <a href="#support">Suporte</a> <a href="#">Login</a> <a href="join">Cadastre-se</a>
 				</div>
 			</div>
 			<div className="container copyright">

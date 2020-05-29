@@ -48,6 +48,9 @@ export function Nav(props) {
 
 export function NavPanel(props) {
 	const [ isActive, setIsActive ] = useState(false)
+	const [ isPayment, setIsPayment ] = useState(false);
+	const [ isProfile, setIsProfile ] = useState(false);
+	const [ isCard, setIsCard ] = useState(0);
 
 	return(
 		<>
@@ -57,13 +60,89 @@ export function NavPanel(props) {
 				<ul>
 					<li className={`${isActive ? 'profileBtn active' : 'profileBtn'}`}><a href="#profile" className="profile" onClick={ () => setIsActive(!isActive) }>P</a>
 						<ul>
-							<li><a href="#profile" id="profileBt">Meu Perfil</a></li>
-							<li><a href="#payment" id="payment">Assinatura</a></li>
+							<li><a href="#profile" id="profileBt" onClick={ () => setIsProfile(!isProfile) }>Meu Perfil</a></li>
+							<li><a href="#payment" id="payment" onClick={ () => setIsPayment(!isPayment) }>Assinatura</a></li>
 							<li><a href="index">Sair</a></li>
 						</ul>
 					</li>
 				</ul>
 			</nav>
+			<div className={`${isPayment ? 'windowAll active' : 'windowAll'}`}>
+        		<a href="#payment" onClick={ () => setIsPayment(!isPayment) } className="closeAll">X</a>
+				<div className="conteudoWindow">
+					<h1>Assinatura</h1>
+					<p className="aviso">Faltam <strong>13 dias</strong> para acabar seu período de teste.</p>
+					<div className="hr"><span>Assinatura</span></div>
+					<table>
+						<tr>
+							<td>Plano</td>
+							<td>Valor</td>
+							<td>Dia de Cobrança</td>
+							<td>Status</td>
+						</tr>
+						<tr>
+							<td>Pro</td>
+							<td>R$39,99</td>
+							<td>08</td>
+							<td>Ativo</td>
+						</tr>
+					</table>
+					<p>
+						Para alterações do plano, entre em contato com nosso suporte <strong>suporte@gerenciazap.com.br</strong>.
+					</p><br />
+					<div className="hr"><span>Pagar com</span></div>
+					<div className="btn-cards">
+						<a href="javascript:void(0)" className={`${isCard==0 ? 'btn-card creditCard active' : 'btn-card creditCard'}`} onClick={ () => setIsCard(0) }>•••• •••• 4576</a>
+						<a href="javascript:void(0)" className={`${isCard==1 ? 'btn-card active' : 'btn-card'}`} onClick={ () => setIsCard(1) }>Adicionar Cartão</a>
+					</div>
+					<div className={`${isCard ? 'addCard active' : 'addCard'}`}>
+						<label for="">
+							<span>CPF do Titular</span>
+							<input type="text" placeholder="000.000.000-00" />
+						</label>
+						<label for="">
+							<span>Número do Cartão</span>
+							<input type="text" placeholder="0000 0000 0000 0000" className="creditCard" />
+						</label>
+						<label for="">
+							<span>Nome Impresso no Cartão</span>
+							<input type="text" placeholder="Ex: PEDRO R. SILVA" />
+						</label>
+						<label for="">
+							<span>Validade</span>
+							<input type="text" placeholder="Ex: 12/20" />
+						</label>
+						<label for="">
+							<span>Código de Segurança (CVV)</span>
+							<input type="text" placeholder="Ex: 123" className="cvvCard" />
+						</label>
+					</div>
+					<p>O meio de pagamento será utilizado para ativação automática das assinaturas em seu cadastro a cada ciclo de utilização da aplicação.</p><br />
+					<button className="btn-primary">Salvar Dados</button>
+				</div>
+			</div>
+			<div className={`${isProfile ? 'windowAll active' : 'windowAll'}`}>
+				<a href="#profile" class="closeAll" onClick={ () => setIsProfile(!isProfile) }>X</a>
+				<div class="conteudoWindow">
+					<h1>Meu Perfil</h1>
+					<p>Paulo Wuéliton Horacio Fernandes</p>
+					<p>E-mail: <strong>example@example.com.br</strong></p><br />
+					<div class="hr"><span>Alterar sua Senha</span></div>
+					<label for="">
+						<span>Senha Atual</span>
+						<input type="text" placeholder="Senha Atual" />
+					</label>
+					<label for="">
+						<span>Nova Senha</span>
+						<input type="text" placeholder="Nova Senha" />
+					</label>
+					<label for="">
+						<span>Confirme a nova Senha</span>
+						<input type="text" placeholder="Confirme a nova Senha" />
+					</label>
+					<button class="btn-primary">Salvar</button>
+				</div>
+			</div>
 		</>
 	)
 }
@@ -135,27 +214,27 @@ export function NavModal(props) {
 					<>
 					<h1>Plano</h1>
 					<p>Escolha seu plano:</p>
-					<div class="plans">
+					<div className="plans">
 						<div>
 							<h1>Iniciante</h1>
 							<h2>1 Site</h2>
 							<p>Desejo instalar somente em um Site.</p>
 							<h2>R$15,90</h2>
-							<a href="#choosePlan" onClick={() => setScreen("card")} class="btn-primary">Escolher Plano</a>
+							<a href="#choosePlan" onClick={() => setScreen("card")} className="btn-primary">Escolher Plano</a>
 						</div>
-						<div class="scale">
+						<div className="scale">
 							<h1>Pro</h1>
 							<h2>3 Sites</h2>
 							<p>Possuo 3 sites e desejo instalar em todos.</p>
 							<h2>R$39,99</h2>
-							<a href="#choosePlan" onClick={() => setScreen("card")} class="btn-primary">Escolher Plano</a>
+							<a href="#choosePlan" onClick={() => setScreen("card")} className="btn-primary">Escolher Plano</a>
 						</div>
 						<div>
 							<h1>Enterprise</h1>
 							<h2>Ilimitado</h2>
 							<p>Possuo muitos sites e desejo instalar em todos.</p>
 							<h2>R$69,99</h2>
-							<a href="#choosePlan" onClick={() => setScreen("card")} class="btn-primary">Escolher Plano</a>
+							<a href="#choosePlan" onClick={() => setScreen("card")} className="btn-primary">Escolher Plano</a>
 						</div>
 					</div>
 					</>
@@ -163,14 +242,14 @@ export function NavModal(props) {
 					<>
 					<h1>Pagamento</h1>
 						<p>Adicione um Cartão de Crédito.</p>
-						<div class="addCard">
+						<div className="addCard">
 							<label for="">
 								<span>CPF do Titular</span>
 								<input type="text" placeholder="000.000.000-00" />
 							</label>
 							<label for="">
 								<span>Número do Cartão</span>
-								<input type="text" placeholder="0000 0000 0000 0000" class="creditCard" />
+								<input type="text" placeholder="0000 0000 0000 0000" className="creditCard" />
 							</label>
 							<label for="">
 								<span>Nome Impresso no Cartão</span>
@@ -182,13 +261,13 @@ export function NavModal(props) {
 							</label>
 							<label for="">
 								<span>Código de Segurança (CVV)</span>
-								<input type="text" placeholder="Ex: 123" class="cvvCard" />
+								<input type="text" placeholder="Ex: 123" className="cvvCard" />
 							</label>
 						</div>
 						
-						<a href="panel" class="btn-primary">Começar</a>
-						<div class="why">
-							<p class="aviso">Porque estamos solicitando os dados de Pagamento?</p>
+						<a href="panel" className="btn-primary">Começar</a>
+						<div className="why">
+							<p className="aviso">Porque estamos solicitando os dados de Pagamento?</p>
 							<p>Você poderá utilizar a ferramenta pelo período de 30 dias de forma gratuita, mas, para garantir a continuidade do serviço, solicitamos os dados de pagamento, porém, você poderá realizar o cancelamento do serviço a qualquer momento nesse período de teste sem nenhuma cobrança.</p>
 						</div>
 					</>
@@ -207,12 +286,12 @@ export function NavModal(props) {
 export function Modal(props) {
 	return(
 		<>
-			<div class="windowAll">
-			<a href="" class="closeAll">X</a>
-			<div class="conteudoWindow">
+		<div className="windowAll">
+			<a href="" className="closeAll">X</a>
+			<div className="conteudoWindow">
 				<h1>Assinatura</h1>
-				<p class="aviso">Faltam <strong>13 dias</strong> para acabar seu período de teste.</p>
-				<div class="hr"><span>Assinatura</span></div>
+				<p className="aviso">Faltam <strong>13 dias</strong> para acabar seu período de teste.</p>
+				<div className="hr"><span>Assinatura</span></div>
 				<table>
 					<tr>
 						<td>Plano</td>
@@ -230,19 +309,19 @@ export function Modal(props) {
 				<p>
 					Para alterações do plano, entre em contato com nosso suporte <strong>suporte@gerenciazap.com.br</strong>.
 				</p><br />
-				<div class="hr"><span>Pagar com</span></div>
-				<div class="btn-cards">
-					<a href="javascript:void(0)" class="btn-card creditCard active">•••• •••• 4576</a>
-					<a href="javascript:void(0)" class="btn-card" id="addCardBtn">Adicionar Cartão</a>
+				<div className="hr"><span>Pagar com</span></div>
+				<div className="btn-cards">
+					<a href="javascript:void(0)" className="btn-card creditCard active">•••• •••• 4576</a>
+					<a href="javascript:void(0)" className="btn-card" id="addCardBtn">Adicionar Cartão</a>
 				</div>
-				<div class="addCard">
+				<div className="addCard">
 					<label for="">
 						<span>CPF do Titular</span>
 						<input type="text" placeholder="000.000.000-00" />
 					</label>
 					<label for="">
 						<span>Número do Cartão</span>
-						<input type="text" placeholder="0000 0000 0000 0000" class="creditCard" />
+						<input type="text" placeholder="0000 0000 0000 0000" className="creditCard" />
 					</label>
 					<label for="">
 						<span>Nome Impresso no Cartão</span>
@@ -254,13 +333,21 @@ export function Modal(props) {
 					</label>
 					<label for="">
 						<span>Código de Segurança (CVV)</span>
-						<input type="text" placeholder="Ex: 123" class="cvvCard" />
+						<input type="text" placeholder="Ex: 123" className="cvvCard" />
 					</label>
 				</div>
 				<p>O meio de pagamento será utilizado para ativação automática das assinaturas em seu cadastro a cada ciclo de utilização da aplicação.</p><br />
-				<button class="btn-primary">Salvar Dados</button>
+				<button className="btn-primary">Salvar Dados</button>
 			</div>
 		</div>
+		</>
+	)
+}
+
+export function PanelModal(props) {
+	return (
+		<>
+			<h1>Teste</h1>
 		</>
 	)
 }
